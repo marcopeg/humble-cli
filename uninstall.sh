@@ -9,6 +9,7 @@ echo "Hello, the following symlinks are about to be removed:"
 echo ""
 echo "   $TARGET/humble"
 echo "   $TARGET/humble-server"
+echo "   $TARGET/humble-update"
 echo ""
 echo "IMPORTANT:"
 echo "You will need to give **sudo permission* to this script."
@@ -27,3 +28,4 @@ fi
 
 [ -f "$TARGET/humble" ] && sudo rm "$TARGET/humble"
 [ -f "$TARGET/humble-server" ] && sudo rm "$TARGET/humble-server"
+[ -f "$TARGET/humble-update" ] && sudo rm "$TARGET/humble-update"
