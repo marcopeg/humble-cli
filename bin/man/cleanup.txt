@@ -1,0 +1,5 @@
+$> humble cleanup [option]
+
+- containers            stop and remove all exiting containers
+- images                removes all existing images
+- volumes               removes all existing volumes
