@@ -23,5 +23,11 @@ bash <(wget -qO- https://raw.githubusercontent.com/marcopeg/humble-cli/master/re
 ## Update:
 
 ```
-humble-update
+humble update
+```
+
+## Documentation:
+
+```
+humble help
 ```
