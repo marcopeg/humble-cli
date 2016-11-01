@@ -5,8 +5,8 @@ PROJECT_CWD="$PWD"
 
 # Environment variables files
 ENV_CONFIG_FNAME=".env"
-ENV_LOCAL_FNAME=".env.local"
-ENV_OVERRIDE_FNAME=".env.override"
+ENV_LOCAL_CONFIG_FNAME=".env.local"
+ENV_OVERRIDE_CONFIG_FNAME=".env.override"
 
 # Libraries
 source "$SCRIPT_CWD/inc/microseconds.sh"
