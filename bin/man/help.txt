@@ -1,0 +1,13 @@
+HumbleCLI Help
+==============
+
+DockerHumble facilitates the execution of \`docker-compose\` projects.
+https://github.com/marcopeg/docker-humble
+
+
+- help                 show a manual page (es: help fs/export)
+- update               update HumbleCLI globally
+- server               proxy to \`humble-server\`
+- utils                invoke a DockerUtils image script
+- fs                   run a file-system utility script
+- run                  run a project utility routine
