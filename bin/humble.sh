@@ -20,6 +20,7 @@ source "$SCRIPT_CWD/lib/source-env.sh"
 source "$SCRIPT_CWD/lib/default-env.sh"
 source "$SCRIPT_CWD/lib/which-compose.sh"
 source "$SCRIPT_CWD/lib/which-cmd.sh"
+source "$SCRIPT_CWD/lib/utils-globals.sh"
 
 # Execute known commands if they exists
 CMD_PATH="$SCRIPT_CWD/cmd/$WHICH_CMD.sh"
