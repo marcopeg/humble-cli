@@ -12,6 +12,7 @@ ENV_OVERRIDE_FNAME=".env.override"
 source "$SCRIPT_CWD/inc/microseconds.sh"
 source "$SCRIPT_CWD/inc/hash.sh"
 source "$SCRIPT_CWD/inc/stringify-url.sh"
+source "$SCRIPT_CWD/inc/man-page.sh"
 
 # Steps
 source "$SCRIPT_CWD/lib/check-env.sh"
