@@ -14,12 +14,16 @@ source "$SCRIPT_CWD/inc/hash.sh"
 source "$SCRIPT_CWD/inc/stringify-url.sh"
 source "$SCRIPT_CWD/inc/man-page.sh"
 
-# Steps
+# Boot steps
 source "$SCRIPT_CWD/lib/check-env.sh"
 source "$SCRIPT_CWD/lib/source-env.sh"
 source "$SCRIPT_CWD/lib/default-env.sh"
 source "$SCRIPT_CWD/lib/which-compose.sh"
 source "$SCRIPT_CWD/lib/which-cmd.sh"
-source "$SCRIPT_CWD/lib/help.sh"
 
+# Execute known commands if they exists
+CMD_PATH="$SCRIPT_CWD/cmd/$WHICH_CMD.sh"
+[ -f "$CMD_PATH" ] && source "$CMD_PATH"
+
+# Proxy to docker-compose
 eval $COMPOSE_EXE
