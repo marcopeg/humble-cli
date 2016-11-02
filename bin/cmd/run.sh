@@ -9,6 +9,5 @@ if [ -f $SCRIPT_PATH ]; then
     source $SCRIPT_PATH
     exit 0
 else
-    echo "Script does not exist"
-    exit 1
+    echo "Run custom docker command..."
 fi
