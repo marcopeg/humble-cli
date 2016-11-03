@@ -9,10 +9,12 @@ ENV_LOCAL_CONFIG_FNAME=".env.local"
 ENV_OVERRIDE_CONFIG_FNAME=".env.override"
 
 # Libraries
+source "$SCRIPT_CWD/inc/index-of.sh"
 source "$SCRIPT_CWD/inc/microseconds.sh"
 source "$SCRIPT_CWD/inc/hash.sh"
 source "$SCRIPT_CWD/inc/stringify-url.sh"
 source "$SCRIPT_CWD/inc/man-page.sh"
+source "$SCRIPT_CWD/inc/fetch.sh"
 
 # Boot steps
 source "$SCRIPT_CWD/lib/check-env.sh"
