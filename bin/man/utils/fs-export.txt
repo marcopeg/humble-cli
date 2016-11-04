@@ -3,10 +3,10 @@ FS-EXPORT
 
 It exports files from a service volume to the host file system:
 
-```
-humble utils fs-export storage://var/logs
--> $PROJECT_CWD/storage___var---logs
-```
+    ```
+    humble utils fs-export storage://var/logs
+    -> $PROJECT_CWD/storage___var---logs
+    ```
 
 the exported folder name is set so to be compatible with `fs-import`
 script so to automatically match the target service/path.
@@ -14,6 +14,6 @@ script so to automatically match the target service/path.
 you can give an optional absolute path so to fine control where
 the export will end up:
 
-```
-humble utils fs-export storage://var/logs /host/target/folder
-```
+    ```
+    humble utils fs-export storage://var/logs /host/target/folder
+    ```

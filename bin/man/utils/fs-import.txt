@@ -3,13 +3,13 @@ FS-IMPORT
 
 Imports files from the host file system to a service's volume.
 
-```
-humble utils fs-import /host/path storage://internal/volume
-```
+    ```
+    humble utils fs-import /host/path storage://internal/volume
+    ```
 
 If your source path is properly formatted you can skip the last option.
 A proper formatted path looks like that:
 
-```
-storage___internal---volume
-```
+    ```
+    storage___internal---volume
+    ```
