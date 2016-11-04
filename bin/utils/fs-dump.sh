@@ -1,19 +1,22 @@
 
 # interpolate target service
-SERVICE_NAME=$(urlGetService "$P3")
-SERVICE_PATH=$(urlGetPath "$P3")
+SERVICE_STRING="$P3"
+SERVICE_NAME=$(urlGetService "$SERVICE_STRING")
+SERVICE_PATH=$(urlGetPath "$SERVICE_STRING")
 SERVICE_CID=$(getContainerId "$SERVICE_NAME")
 
-# compute backup file name
-BACKUP_TARGET="$PROJECT_CWD/$BACKUP_ROOT"
-BACKUP_INTERNAL_PATH=$(echo $SERVICE_PATH | tr / .)
-BACKUP_INTERNAL_PATH=${BACKUP_INTERNAL_PATH:1}
 
-BACKUP_NAME="${P4:-$BACKUP_NAME}"
-BACKUP_NAME=${BACKUP_NAME:-$BACKUP_FS_DUMP_FORMAT}
-BACKUP_NAME="${BACKUP_NAME/\%s/$SERVICE_NAME}"
-BACKUP_NAME="${BACKUP_NAME/\%p/$BACKUP_INTERNAL_PATH}"
-BACKUP_NAME="${BACKUP_NAME/\%d/$BACKUP_DATE}.tar.gz"
+# compute backup file name
+BACKUP_NAME="$(serviceUrlToString "$SERVICE_STRING")___$BACKUP_DATE.tar.gz"
+BACKUP_TARGET=${P4:-"$PROJECT_CWD/$BACKUP_ROOT"}
+if [ "$(isAbsolutePath $BACKUP_TARGET)" == "false" ]; then
+    BACKUP_TARGET="$PROJECT_CWD/$BACKUP_ROOT/$BACKUP_TARGET"
+fi
+
+if [ $(isTarGzPath $BACKUP_TARGET) = "true" ]; then
+    BACKUP_NAME=$(basename "$BACKUP_TARGET")
+    BACKUP_TARGET=$(dirname "$BACKUP_TARGET")
+fi
 
 # make a nice backup structure
 SERVICE_PATH_DIRNAME=$(dirname $SERVICE_PATH)
@@ -24,21 +27,19 @@ if [ "$PRINT_FEEDBACK" == "yes" ]; then
     echo "====== UTILS - FS-DUMP ======"
     echo "service:  $SERVICE_NAME"
     echo "path:     $SERVICE_PATH"
-    echo "target:   $BACKUP_ROOT/$BACKUP_NAME"
-    echo "(sleep "$BACKUP_DELAY"s, you can abort now)"
-    sleep $BACKUP_DELAY
+    echo "target:   $BACKUP_TARGET"
+    echo "name:     $BACKUP_NAME"
+    enterToContinue
     echo ""
     echo ""
 fi
-#
-[ "$PRINT_FEEDBACK" == "yes" ] && echo "--> start..."
+
+echo "[$SERVICE_STRING] start fs-dump..."
 CMD="mkdir -p $BACKUP_TARGET && docker run --rm --volumes-from=$SERVICE_CID -v=$BACKUP_TARGET:/host-working-folder marcopeg/humble tar cvzf /host-working-folder/$BACKUP_NAME -C $SERVICE_PATH_DIRNAME ${SERVICE_PATH_BASENAME:-.}"
 eval $CMD
 
-if [ "$PRINT_FEEDBACK" == "yes" ]; then
-    echo ""
-    echo "--> fs-dump complete!"
-    echo ""
-    echo ""
-fi
+echo ""
+echo "[$SERVICE_STRING] fs-dump complete!"
+echo ""
+echo ""
 exit

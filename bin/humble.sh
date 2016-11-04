@@ -18,6 +18,7 @@ source "$SCRIPT_CWD/inc/fetch.sh"
 source "$SCRIPT_CWD/inc/enter-to-continue.sh"
 source "$SCRIPT_CWD/inc/is-absolute-path.sh"
 source "$SCRIPT_CWD/inc/service-url.sh"
+source "$SCRIPT_CWD/inc/is-tar-gz-path.sh"
 
 # Boot steps
 source "$SCRIPT_CWD/lib/check-env.sh"
