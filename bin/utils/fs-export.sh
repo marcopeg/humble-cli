@@ -16,8 +16,7 @@ fi
 echo "service:  $SERVICE_NAME"
 echo "path:     $SERVICE_PATH"
 echo "target:   $TARGET_PATH"
-echo "(sleep 3s, you can abort now)"
-sleep 3
+enterToContinue
 echo ""
 echo ""
 

@@ -15,6 +15,7 @@ source "$SCRIPT_CWD/inc/hash.sh"
 source "$SCRIPT_CWD/inc/stringify-url.sh"
 source "$SCRIPT_CWD/inc/man-page.sh"
 source "$SCRIPT_CWD/inc/fetch.sh"
+source "$SCRIPT_CWD/inc/enter-to-continue.sh"
 
 # Boot steps
 source "$SCRIPT_CWD/lib/check-env.sh"

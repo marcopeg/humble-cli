@@ -8,6 +8,4 @@ if [ -f $SCRIPT_PATH ]; then
     ARGS=${@:3}
     source $SCRIPT_PATH
     exit 0
-else
-    echo "Run custom docker command..."
 fi
