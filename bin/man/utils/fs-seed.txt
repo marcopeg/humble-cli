@@ -7,8 +7,8 @@ Restore a compressed archive into a service volume.
     humble utils fs-seed storage___data---folders___20161104.122651.tar.gz
     ```
 
-It will read the archive from `data/backup`
-(where `data/backup` is defined in the environment variable `$BACKUP_ROOT`)
+It will read the archive from `backup`
+(where `backup` is defined in the environment variable `$HUMBLE_BACKUP`)
 and will seed `storage://data/folders`
 
 You can give a custom archive path, even an absolute path, and use the

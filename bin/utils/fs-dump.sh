@@ -8,7 +8,7 @@ SERVICE_CID=$(getContainerId "$SERVICE_NAME")
 
 # compute backup file name
 BACKUP_NAME="$(serviceUrlToString "$SERVICE_STRING")___$BACKUP_DATE.tar.gz"
-BACKUP_TARGET=${P4:-"$PROJECT_CWD/$BACKUP_ROOT"}
+BACKUP_TARGET=${P4:-"$BACKUP_ROOT"}
 if [ "$(isAbsolutePath $BACKUP_TARGET)" == "false" ]; then
     BACKUP_TARGET="$PROJECT_CWD/$BACKUP_ROOT/$BACKUP_TARGET"
 fi

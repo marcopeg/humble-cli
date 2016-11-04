@@ -1,6 +1,6 @@
 BACKUP_SOURCE="$P3"
 if [ $(isAbsolutePath $BACKUP_SOURCE) = "false" ]; then
-    BACKUP_SOURCE="$PROJECT_CWD/$BACKUP_ROOT/$BACKUP_SOURCE"
+    BACKUP_SOURCE="$BACKUP_ROOT/$BACKUP_SOURCE"
 fi
 
 if [[ ! -f "$BACKUP_SOURCE" ]]; then

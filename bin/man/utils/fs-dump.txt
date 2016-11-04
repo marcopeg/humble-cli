@@ -10,20 +10,20 @@ Dumps a service volume to a host's compressed archive.
 Will create a compressed archive in the local project cwd:
 
     ```
-    data/backup/storage___data---files___{date.time}.tar.gz
+    backup/storage___data---files___{date.time}.tar.gz
     ```
 
-where `data/backup` is defined in the environment variable `$BACKUP_ROOT`.
+where `data/backup` is defined in the environment variable `$HUMBLE_BACKUP`.
 
 You can customize the target folder with both relative and absolute paths,
 with or without the name of the target compressed archive:
 
     ```
     humble utils fs-dump storage://data/files foo
-    -> data/backup/foo/storage___data---files___{date.time}.tar.gz
+    -> backup/foo/storage___data---files___{date.time}.tar.gz
 
     humble utils fs-dump storage://data/files foo/archive.tar.gx
-    -> data/backup/foo/archive.tar.gz
+    -> backup/foo/archive.tar.gz
 
     humble utils fs-dump storage://data/files /foo
     -> /foo/storage___data---files___{date.time}.tar.gz
