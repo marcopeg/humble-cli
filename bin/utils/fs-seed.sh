@@ -1,25 +1,28 @@
-BACKUP_FILE=${P3}
-BACKUP_PATH="$PROJECT_CWD/$BACKUP_ROOT/$BACKUP_FILE"
+BACKUP_SOURCE="$P3"
+if [ $(isAbsolutePath $BACKUP_SOURCE) = "false" ]; then
+    BACKUP_SOURCE="$PROJECT_CWD/$BACKUP_ROOT/$BACKUP_SOURCE"
+fi
 
-
-if [[ ! -f "$BACKUP_PATH" ]]; then
+if [[ ! -f "$BACKUP_SOURCE" ]]; then
     echo ""
     echo "====== UTILS - FS-SEED ======"
     echo "ERROR: Backup file does not exists!"
-    echo "($BACKUP_PATH)"
+    echo "($BACKUP_SOURCE)"
     echo ""
     echo ""
     exit
 fi
 
-# interpolate service string from backup file name
-SERVICE_STRING=$P4
+BACKUP_PATH=$(dirname "$BACKUP_SOURCE")
+BACKUP_FILE=$(basename "$BACKUP_SOURCE")
+
+# Interpolate the target volume from the backup file name
+SERVICE_STRING="$P4"
 if [[ "" == "$SERVICE_STRING" ]]; then
     SERVICE_STRING=$BACKUP_FILE
     SERVICE_STRING="`echo $SERVICE_STRING | grep '___' | sed -e's,^\(.*___\).*,\1,g'`"
     SERVICE_STRING="${SERVICE_STRING%???}"
-    SERVICE_STRING=$(echo $SERVICE_STRING | tr . /)
-    SERVICE_STRING="${SERVICE_STRING/___/://}"
+    SERVICE_STRING=$(stringToServiceUrl "$SERVICE_STRING")
 fi
 
 # interpolate target service
@@ -30,7 +33,8 @@ SERVICE_CID=$(getContainerId $SERVICE_NAME)
 if [ "$PRINT_FEEDBACK" == "yes" ]; then
     echo ""
     echo "====== UTILS - FS-SEED ======"
-    echo "source:   $BACKUP_ROOT/$BACKUP_FILE"
+    echo "source:   $BACKUP_PATH"
+    echo "file:     $BACKUP_FILE"
     echo "service:  $SERVICE_NAME"
     echo "path:     $SERVICE_PATH"
     enterToContinue
@@ -38,14 +42,12 @@ if [ "$PRINT_FEEDBACK" == "yes" ]; then
     echo ""
 fi
 
-[ "$PRINT_FEEDBACK" == "yes" ] && echo "--> start..."
-CMD="docker run --rm --volumes-from=$SERVICE_CID -v=$BACKUP_PATH:/host-backup-source marcopeg/humble sh -c \"mkdir -p $(dirname $SERVICE_PATH) && cd $(dirname $SERVICE_PATH) && tar xvfz /host-backup-source\""
+echo "[$BACKUP_FILE] fs-seed start..."
+CMD="docker run --rm --volumes-from=$SERVICE_CID -v=$BACKUP_SOURCE:/host-backup-source marcopeg/humble sh -c \"mkdir -p $(dirname $SERVICE_PATH) && cd $(dirname $SERVICE_PATH) && tar xvfz /host-backup-source\""
 eval $CMD
 
-if [ "$PRINT_FEEDBACK" == "yes" ]; then
-    echo ""
-    echo "--> fs-seed complete!"
-    echo ""
-    echo ""
-fi
+echo ""
+echo "[$BACKUP_FILE] fs-seed complete!"
+echo ""
+echo ""
 exit
