@@ -37,5 +37,16 @@ BACKUP_DATE=$(date $BACKUP_DATE_FORMAT)
 PRINT_FEEDBACK="yes"
 P3=$3
 P4=$4
+P5=$5
+P6=$6
+
+for last; do true; done
+if [ "--now" == "$last" ]; then
+    PRINT_FEEDBACK="no"
+    [ "$P3" == "$last" ] && P3=""
+    [ "$P4" == "$last" ] && P4=""
+    [ "$P5" == "$last" ] && P5=""
+    [ "$P6" == "$last" ] && P6=""
+fi
 
 BACKUP_FS_DUMP_FORMAT=${BACKUP_FS_DUMP_FORMAT:-"%s___%p___%d"}
