@@ -33,8 +33,7 @@ if [ "$PRINT_FEEDBACK" == "yes" ]; then
     echo "source:   $BACKUP_ROOT/$BACKUP_FILE"
     echo "service:  $SERVICE_NAME"
     echo "path:     $SERVICE_PATH"
-    echo "(sleep "$BACKUP_DELAY"s, you can abort now)"
-    sleep $BACKUP_DELAY
+    enterToContinue
     echo ""
     echo ""
 fi
