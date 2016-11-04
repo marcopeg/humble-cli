@@ -1,0 +1,13 @@
+Docker Humble UTILS
+===================
+
+ - fs-export                move a volume to the host file system
+ - fs-import                move a host folder to a container volume
+ - fs-dump                  exports a volume to a compressed archive
+ - fs-seed                  imports a compressed archive to a volume
+
+To read the man page for a specific command run:
+
+    ```
+    humble help utils/fs-export
+    ```
