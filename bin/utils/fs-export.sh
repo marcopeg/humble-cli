@@ -1,6 +1,7 @@
 
-SERVICE_NAME=$(urlGetService $3)
-SERVICE_PATH=$(urlGetPath $3)
+SERVICE_STRING="$3"
+SERVICE_NAME=$(urlGetService "$SERVICE_STRING")
+SERVICE_PATH=$(urlGetPath "$SERVICE_STRING")
 SOURCE_CID=$(getContainerId $SERVICE_NAME)
 TARGET_FOLDER=${4:-$(serviceUrlToString $3)}
 

@@ -1,7 +1,17 @@
-SERVICE_NAME=$(urlGetService $4)
-SERVICE_PATH=$(urlGetPath $4)
+
+SOURCE_PATH="$3"
+
+if [ "$(isAbsolutePath $SOURCE_PATH)" == "false" ]; then
+    SERVICE_STRING=$(stringToServiceUrl "$SOURCE_PATH")
+    SOURCE_PATH="$PROJECT_CWD/$SOURCE_PATH"
+else
+    SERVICE_STRING=$(stringToServiceUrl $(basename "$SOURCE_PATH"))
+fi
+
+SERVICE_STRING=${4:-"$SERVICE_STRING"}
+SERVICE_NAME=$(urlGetService "$SERVICE_STRING")
+SERVICE_PATH=$(urlGetPath "$SERVICE_STRING")
 SERVICE_CID=$(getContainerId $SERVICE_NAME)
-SOURCE_PATH="$PROJECT_CWD/$3"
 
 echo ""
 echo "====== UTILS - FS-IMPORT ======"

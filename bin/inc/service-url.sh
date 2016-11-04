@@ -22,5 +22,10 @@ stringToServiceUrl() {
         SERVICE_PATH=${SERVICE_PATH//---/\/}
     fi
 
-    echo "$SERVICE_NAME://$SERVICE_PATH"
+    SERVICE_URL="$SERVICE_NAME://$SERVICE_PATH"
+
+    # test if it was a valid stringified serviceUrl
+    if [ $(serviceUrlToString "$SERVICE_URL") = "$SERVICE_STRING" ]; then
+        echo "$SERVICE_URL"
+    fi
 }
