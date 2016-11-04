@@ -14,7 +14,17 @@ if [ -z "$HUMBLE_ENV" ]; then
     echo "    \$HUMBLE_ENV=\"development\""
     echo ""
     echo ""
-    sleep 2
+    enterToContinue
 
     HUMBLE_ENV="default"
+fi
+
+if [ -z "$HUMBLE_DATA" ]; then
+    HUMBLE_DATA="$PROJECT_CWD/data"
+    DECLARED_ENV_VARS="$DECLARED_ENV_VARS HUMBLE_DATA=$HUMBLE_DATA"
+fi
+
+if [ -z "$HUMBLE_BACKUP" ]; then
+    HUMBLE_BACKUP="$PROJECT_CWD/data/backup"
+    DECLARED_ENV_VARS="$DECLARED_ENV_VARS HUMBLE_BACKUP=$HUMBLE_BACKUP"
 fi
