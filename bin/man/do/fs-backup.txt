@@ -4,7 +4,7 @@ FS-DUMP
 Dumps a service volume to a host's compressed archive.
 
     ```
-    humble do fs-dump storage://data/files
+    humble do fs-backup storage://data/files
     ```
 
 Will create a compressed archive in the local project cwd:
@@ -19,15 +19,15 @@ You can customize the target folder with both relative and absolute paths,
 with or without the name of the target compressed archive:
 
     ```
-    humble do fs-dump storage://data/files foo
+    humble do fs-backup storage://data/files foo
     -> backup/foo/storage___data---files___{date.time}.tar.gz
 
-    humble do fs-dump storage://data/files foo/archive.tar.gx
+    humble do fs-backup storage://data/files foo/archive.tar.gx
     -> backup/foo/archive.tar.gz
 
-    humble do fs-dump storage://data/files /foo
+    humble do fs-backup storage://data/files /foo
     -> /foo/storage___data---files___{date.time}.tar.gz
 
-    humble do fs-dump storage://data/files /foo/archive.tar.gx
+    humble do fs-backup storage://data/files /foo/archive.tar.gx
     -> /foo/archive.tar.gz
     ```

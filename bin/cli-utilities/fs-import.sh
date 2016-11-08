@@ -15,7 +15,7 @@ SERVICE_CID=$(getContainerId $SERVICE_NAME)
 
 echo ""
 echo "====== UTILS - FS-IMPORT ======"
-if [ ! -d $SOURCE_PATH ]; then
+if [ ! -f $SOURCE_PATH ]; then
     echo "ERROR: source folder does not exists"
     echo "($SOURCE_PATH)"
     echo ""
