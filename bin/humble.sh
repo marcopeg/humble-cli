@@ -32,5 +32,20 @@ source "$SCRIPT_CWD/lib/utils-globals.sh"
 CMD_PATH="$SCRIPT_CWD/cmd/$WHICH_CMD.sh"
 [ -f "$CMD_PATH" ] && source "$CMD_PATH"
 
+# Execute high level scripts from the application
+# (this may be improved a lot :-)
+COMPOSE_RESERVED_CMD="build,bundle,config,create,down,events,exec,help,kill,logs,pause,port,ps,pull,push,restart,rm,run,scale,start,stop,unpause,up,version"
+CMD_PATH="$PROJECT_CWD/scripts/$1.sh"
+if [ -f "$CMD_PATH" ]; then
+    if [ $(indexOf  "$COMPOSE_RESERVED_CMD" "$1") = "-1" ]; then
+        source "$CMD_PATH"
+        exit 0
+    else
+        echo "WARNING: app script not allowed as it is a docker-compose command!"
+        echo "(keep running as docker-compose command)"
+        enterToContinue
+    fi
+fi
+
 # Proxy to docker-compose
 eval $COMPOSE_EXE
