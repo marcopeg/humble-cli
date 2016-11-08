@@ -35,6 +35,7 @@ BACKUP_DATE_FORMAT=${BACKUP_DATE_FORMAT:-"+%Y%m%d.%H%M%S"}
 BACKUP_DATE=$(date $BACKUP_DATE_FORMAT)
 
 PRINT_FEEDBACK="yes"
+P2=$2
 P3=$3
 P4=$4
 P5=$5
@@ -43,6 +44,7 @@ P6=$6
 for last; do true; done
 if [ "--now" == "$last" ]; then
     PRINT_FEEDBACK="no"
+	[ "$P2" == "$last" ] && P2=""
     [ "$P3" == "$last" ] && P3=""
     [ "$P4" == "$last" ] && P4=""
     [ "$P5" == "$last" ] && P5=""
