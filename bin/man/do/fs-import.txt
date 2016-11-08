@@ -4,7 +4,7 @@ FS-IMPORT
 Imports files from the host file system to a service's volume.
 
     ```
-    humble utils fs-import /host/path storage://internal/volume
+    humble do fs-import /host/path storage://internal/volume
     ```
 
 If your source path is properly formatted you can skip the last option.

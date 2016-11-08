@@ -6,7 +6,7 @@
 WHICH_UTILITY="$2"
 
 # Execute known commands if they exists
-CMD_PATH="$SCRIPT_CWD/utils/$WHICH_UTILITY.sh"
+CMD_PATH="$SCRIPT_CWD/cli-utilities/$WHICH_UTILITY.sh"
 [ -f "$CMD_PATH" ] && source "$CMD_PATH"
 
 # Run scripts from docker-utils image
