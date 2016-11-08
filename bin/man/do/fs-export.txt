@@ -4,7 +4,7 @@ FS-EXPORT
 It exports files from a service volume to the host file system:
 
     ```
-    humble utils fs-export storage://var/logs
+    humble do fs-export storage://var/logs
     -> $PROJECT_CWD/storage___var---logs
     ```
 
@@ -15,5 +15,5 @@ you can give an optional absolute path so to fine control where
 the export will end up:
 
     ```
-    humble utils fs-export storage://var/logs /host/target/folder
+    humble do fs-export storage://var/logs /host/target/folder
     ```

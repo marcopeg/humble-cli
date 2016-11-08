@@ -1,5 +1,5 @@
-Docker Humble UTILS
-===================
+Docker Humble Utilities
+=======================
 
  - fs-export                move a volume to the host file system
  - fs-import                move a host folder to a container volume
@@ -9,5 +9,5 @@ Docker Humble UTILS
 To read the man page for a specific command run:
 
     ```
-    humble help utils/fs-export
+    humble help do/fs-export
     ```

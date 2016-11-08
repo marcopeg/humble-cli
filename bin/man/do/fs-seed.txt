@@ -4,7 +4,7 @@ FS-SEED
 Restore a compressed archive into a service volume.
 
     ```
-    humble utils fs-seed storage___data---folders___20161104.122651.tar.gz
+    humble do fs-seed storage___data---folders___20161104.122651.tar.gz
     ```
 
 It will read the archive from `backup`
@@ -15,5 +15,5 @@ You can give a custom archive path, even an absolute path, and use the
 optional target parameter to tell Humble which service/volume to seed:
 
     ```
-    humble utils fs-seed /backups/images.tar.gz storage://var/www/images
+    humble do fs-seed /backups/images.tar.gz storage://var/www/images
     ```
