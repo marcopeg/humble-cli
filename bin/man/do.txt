@@ -5,6 +5,7 @@ Docker Humble Utilities
  - fs-import                move a host folder to a container volume
  - fs-dump                  exports a volume to a compressed archive
  - fs-seed                  imports a compressed archive to a volume
+ - cleanup                  utilities to cleanup after Docker
 
 To read the man page for a specific command run:
 
