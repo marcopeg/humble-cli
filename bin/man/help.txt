@@ -7,5 +7,4 @@ https://github.com/marcopeg/docker-humble
 - help                 show a manual page (es: help fs/export)
 - update               update HumbleCLI globally
 - do                   invoke a utility script (fx-export, mysql-backup, ...)
-- run                  run a project utility routine
-- cleanup              utilities to clean up after docker
+- server               runs HumbleServer commands

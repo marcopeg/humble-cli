@@ -13,12 +13,12 @@ ENV_EXISTS=false
 [ -f $ENV_LOCAL_CONFIG ] && ENV_EXISTS=true
 [ -f $ENV_OVERRIDE_CONFIG ] && ENV_EXISTS=true
 
-if [ "$ENV_EXISTS" == "false" ]; then
-    echo ""
-    echo "=== WARNING ==="
-    echo "\"$ENV_CONFIG\" not found"
-    echo "switch to default values, you may experience some troubles..."
-    echo ""
-    echo ""
-    sleep 2
-fi
+# if [ "$ENV_EXISTS" == "false" ]; then
+#     echo ""
+#     echo "=== WARNING ==="
+#     echo "\"$ENV_CONFIG\" not found"
+#     echo "switch to default values, you may experience some troubles..."
+#     echo ""
+#     echo ""
+#     sleep 2
+# fi
