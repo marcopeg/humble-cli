@@ -43,7 +43,7 @@ if [ "$PRINT_FEEDBACK" == "yes" ]; then
 fi
 
 echo "[$BACKUP_FILE] fs-seed start..."
-CMD="docker run --rm --volumes-from=$SERVICE_CID -v=$BACKUP_SOURCE:/host-backup-source marcopeg/humble sh -c \"mkdir -p $(dirname $SERVICE_PATH) && cd $(dirname $SERVICE_PATH) && tar xvfz /host-backup-source\""
+CMD="docker run --rm --volumes-from=$SERVICE_CID -v=$BACKUP_SOURCE:/host-backup-source $HUMBLE_UTILS sh -c \"mkdir -p $(dirname $SERVICE_PATH) && cd $(dirname $SERVICE_PATH) && tar xvfz /host-backup-source\""
 eval $CMD
 
 echo ""

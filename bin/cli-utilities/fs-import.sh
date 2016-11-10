@@ -31,7 +31,7 @@ echo ""
 echo ""
 
 echo "--> start..."
-CMD="docker run --rm --volumes-from=$SERVICE_CID -v=$SOURCE_PATH:/host-working-folder marcopeg/humble cp -rf /host-working-folder/. $SERVICE_PATH"
+CMD="docker run --rm --volumes-from=$SERVICE_CID -v=$SOURCE_PATH:/host-working-folder $HUMBLE_UTILS cp -rf /host-working-folder/. $SERVICE_PATH"
 eval $CMD
 
 echo "--> fs-import complete!"

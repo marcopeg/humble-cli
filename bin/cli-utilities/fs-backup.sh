@@ -34,7 +34,7 @@ if [ "$PRINT_FEEDBACK" == "yes" ]; then
 fi
 
 echo "[$SERVICE_STRING] fs-backup start..."
-CMD="mkdir -p $BACKUP_TARGET && docker run --rm --volumes-from=$SERVICE_CID -v=$BACKUP_TARGET:/host-working-folder marcopeg/humble tar cvzf /host-working-folder/$BACKUP_NAME -C $SERVICE_PATH_DIRNAME ${SERVICE_PATH_BASENAME:-.}"
+CMD="mkdir -p $BACKUP_TARGET && docker run --rm --volumes-from=$SERVICE_CID -v=$BACKUP_TARGET:/host-working-folder $HUMBLE_UTILS tar cvzf /host-working-folder/$BACKUP_NAME -C $SERVICE_PATH_DIRNAME ${SERVICE_PATH_BASENAME:-.}"
 eval $CMD
 
 echo ""
