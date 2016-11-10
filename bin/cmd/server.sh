@@ -4,12 +4,11 @@ WHICH_SERVER_CMD="$2"
 # Find out the real server CWD
 SERVER_CWD="$PROJECT_CWD"
 SERVER_NODE_APP="$SCRIPT_CWD/../humble-node-server"
-SERVER_IMAGE="marcopeg/humble-server"
 
 function runServerScript() {
     echo $(docker run --rm \
         -v "$SERVER_CWD":/humble-server \
-        "$SERVER_IMAGE" \
+        "$$HUMBLE_UTILS" \
         node $@)
 }
 

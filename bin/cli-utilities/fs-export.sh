@@ -29,7 +29,7 @@ echo ""
 
 echo "--> start..."
 mkdir -p "$TARGET_PATH"
-CMD="docker run --rm --volumes-from=$SOURCE_CID -v=$TARGET_PATH:/host-working-folder marcopeg/humble cp -rf $SERVICE_PATH/. /host-working-folder"
+CMD="docker run --rm --volumes-from=$SOURCE_CID -v=$TARGET_PATH:/host-working-folder $HUMBLE_UTILS cp -rf $SERVICE_PATH/. /host-working-folder"
 eval "$CMD"
 
 echo "--> fs-export complete!"
