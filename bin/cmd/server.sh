@@ -8,7 +8,7 @@ SERVER_NODE_APP="$SCRIPT_CWD/../humble-node-server"
 function runServerScript() {
     echo $(docker run --rm \
         -v "$SERVER_CWD":/humble-server \
-        "$$HUMBLE_UTILS" \
+        "$HUMBLE_SERVER" \
         node $@)
 }
 
