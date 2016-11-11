@@ -10,7 +10,7 @@ ENV_OVERRIDE_CONFIG_FNAME=".env.override"
 
 # Image dependency declaration
 HUMBLE_UTILS="marcopeg/humble-utils:1.0.0"
-HUMBLE_SERVER="marcopeg/humble-server:1.0.0"
+HUMBLE_SERVER="marcopeg/humble-server:1.0.1"
 
 # Libraries
 source "$SCRIPT_CWD/inc/index-of.sh"
