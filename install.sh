@@ -9,8 +9,8 @@ echo "Hello, the following symlinks are about to be written:"
 echo ""
 echo "   $TARGET/humble"
 echo ""
-echo "IMPORTANT:"
-echo "You will need to give **sudo permission* to this script."
+#echo "IMPORTANT:"
+#echo "You will need to give **sudo permission* to this script."
 
 echo "Do you want to continue? (y/n)"
 CONFIRM_OPERATION=false
@@ -25,5 +25,5 @@ if [ "$CONFIRM_OPERATION" == "false" ]; then
 fi
 
 echo "Install Docker Humble..."
-[ ! -f "$TARGET/humble" ] && sudo ln -s "$CWD/bin/humble.sh" "$TARGET/humble"
+[ ! -f "$TARGET/humble" ] && ln -s "$CWD/bin/humble.sh" "$TARGET/humble"
 echo "completed!"
