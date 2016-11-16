@@ -3,7 +3,7 @@
 # (development)
 #
 
-# if [ -z "$HUMBLE_ENV" ]; then
+if [ -z "$HUMBLE_ENV" ]; then
 #
 #     echo ""
 #     echo "=== WARNING ==="
@@ -16,8 +16,8 @@
 #     echo ""
 #     enterToContinue
 #
-#     HUMBLE_ENV="default"
-# fi
+    HUMBLE_ENV="default"
+fi
 
 if [ -z "$HUMBLE_DATA" ]; then
     HUMBLE_DATA="$PROJECT_CWD/data"
