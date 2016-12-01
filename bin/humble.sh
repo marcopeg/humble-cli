@@ -9,7 +9,7 @@ ENV_LOCAL_CONFIG_FNAME=".env.local"
 ENV_OVERRIDE_CONFIG_FNAME=".env.override"
 
 # Image dependency declaration
-HUMBLE_UTILS="marcopeg/humble-utils:1.0.1"
+HUMBLE_UTILS="marcopeg/humble-utils:2.0.2"
 HUMBLE_SERVER="marcopeg/humble-server:1.0.1"
 
 # Libraries
