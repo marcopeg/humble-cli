@@ -30,6 +30,6 @@ if [ -z "$HUMBLE_BACKUP" ]; then
 fi
 
 if [ -z "$HUMBLE_IP" ]; then
-    HUMBLE_IP=$(getHostIp)
+    HUMBLE_IP=$HUMBLE_HOST_IP
     DECLARED_ENV_VARS="$DECLARED_ENV_VARS HUMBLE_IP=$HUMBLE_IP"
 fi

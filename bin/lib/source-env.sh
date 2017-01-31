@@ -6,6 +6,10 @@
 SOURCE_ENV_TMP1=$(mktemp "/tmp/humble_env_before_$(stringifyUrl $PWD)_$(stringifyUrl $(microseconds)).XXXXXX")
 SOURCE_ENV_TMP2=$(mktemp "/tmp/humble_env_after_$(stringifyUrl $PWD)_$(stringifyUrl $(microseconds)).XXXXXX")
 
+if [ -z "$HUMBLE_HOST_IP" ]; then
+    HUMBLE_HOST_IP=$(getHostIp)
+fi
+
 ( set -o posix ; set ) >"$SOURCE_ENV_TMP1"
 
 [ -f $ENV_CONFIG ] && source $ENV_CONFIG
