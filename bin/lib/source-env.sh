@@ -10,6 +10,11 @@ if [ -z "$HUMBLE_HOST_IP" ]; then
     HUMBLE_HOST_IP=$(getHostIp)
 fi
 
+# Detect enforced environment
+if [ ! -z "$HUMBLE_ENV" ]; then
+    HUMBLE_FORCED_ENV="$HUMBLE_ENV"
+fi
+
 ( set -o posix ; set ) >"$SOURCE_ENV_TMP1"
 
 [ -f $ENV_CONFIG ] && source $ENV_CONFIG
@@ -17,6 +22,11 @@ fi
 [ -f $ENV_OVERRIDE_CONFIG ] && source $ENV_OVERRIDE_CONFIG
 
 ( set -o posix ; set ) >"$SOURCE_ENV_TMP2"
+
+# Apply enforced environment
+if [ ! -z "$HUMBLE_FORCED_ENV" ]; then
+    HUMBLE_ENV="$HUMBLE_FORCED_ENV"
+fi
 
 SOURCED_VARS=$(diff $SOURCE_ENV_TMP1 $SOURCE_ENV_TMP2 | sed -ne 's/^> //p')
 rm "$SOURCE_ENV_TMP1" "$SOURCE_ENV_TMP2"
