@@ -1,4 +1,9 @@
-$> humble do cleanup [option]
+CLEANUP
+=======
+
+    ```
+    $> humble do cleanup [option]
+    ```
 
 - containers            stop and remove all exiting containers
 - images                removes all existing images
