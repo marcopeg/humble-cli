@@ -6,6 +6,7 @@ Docker Humble Utilities
  - fs-dump                  exports a volume to a compressed archive
  - fs-seed                  imports a compressed archive to a volume
  - cleanup                  utilities to cleanup after Docker
+ - getip                    gives you the current network ip for your machine
 
 To read the man page for a specific command run:
 

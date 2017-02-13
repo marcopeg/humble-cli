@@ -1,0 +1,15 @@
+GETIP
+=====
+
+Show the current Network IP assigned to your machine.
+(currently tested only on Mac OSX)
+
+NOTE: If you have more than one network interface connected it will show just
+the first one.
+
+Your current Network IP is also available as environment variable
+to your `.env` or `docker-compose` files:
+
+   ```
+   API_URL=http://$HUMBLE_HOST_IP:300
+   ```
